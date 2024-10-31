@@ -1,0 +1,11 @@
+name: composeintroduction
+
+services:
+  backend:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - 80
+  # database:
+  #   image: postgres:latest
