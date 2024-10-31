@@ -7,5 +7,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - 80
-  # database:
-  #   image: postgres:latest
+  database:
+    image: postgres:17
