@@ -1,11 +1,38 @@
 name: composeintroduction
 
 services:
-  backend:
-    build:
-      context: ./app
-      dockerfile: Dockerfile
-    ports:
-      - 80
+  # app:
+  #   build:
+  #     context: ./app
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "135:135"
+  #   # tty: true #
+  #   # stdin_open: true #
+  #   env_file:
+  #     - ./app/.env  # Path to your .env file, relative to the compose file
+
   database:
     image: postgres:17
+    environment: #syntax
+      - POSTGRES_USER="user"
+      - POSTGRES_PASSWORD="password"
+    ports:
+      - "5432:5432"
+    volumes: #
+          - local_pgdata:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "5555:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "email@email.com"
+      PGADMIN_DEFAULT_PASSWORD: "password"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+volumes: #yay volumes 10/31 idk
+  local_pgdata:
+  pgadmin-data:
