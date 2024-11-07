@@ -11,7 +11,7 @@ load_dotenv()  # take environment variables from .env.
 
 # ask what city they want the weather for and take user input
 # location = input('Where do you want to know the weather for?\n') # \n newline, line break
-location = os.getenv("LOCATION")
+location = os.getenv("LOCATION") #to avoid using terminal
 
 # turn the user input, feed it into geocode, return latitude and longitude
 get_link = "https://geocode.maps.co/search?q=" + location
