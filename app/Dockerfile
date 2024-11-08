@@ -14,4 +14,6 @@ EXPOSE 3306
 RUN useradd app
 USER app
 
-CMD [ "python", "./weather-api.py"]
+# CMD [ "python", "./weather-api.py"] temporary entrypoint
+
+ENTRYPOINT ["tail", "-f", "/dev/null"]

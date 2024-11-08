@@ -1,0 +1,5 @@
+hello-world
+whats the difference between mounting and copying
+mounting is connected
+mounting is bidirectional between host computer and docker container
+long words
